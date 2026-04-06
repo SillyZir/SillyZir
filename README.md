@@ -29,19 +29,7 @@ My work is centered around:
 
 ---
 
-## 🏗️ Selected Work
-
-- **Agent Zir** → learning system + self-improving intelligence system 
-- **Content / Growth Engine** → network-aware distribution + engagement  
-- **Protocol Experiments** → token + treasury + coordination models  
-
----
-
 ## 🎯 Philosophy
-
-Most systems fail because they optimize for:
-- short-term output  
-- isolated components  
 
 I focus on:
 - incentive alignment  
