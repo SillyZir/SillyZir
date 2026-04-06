@@ -21,23 +21,6 @@ My work is centered around:
 
 ---
 
-## 🧠 Current Focus
-
-- Designing systems that behave like **digital economies**
-- Exploring **agent-driven execution + coordination**
-- Building infrastructure for **autonomous value creation**
-
----
-
-## 🎯 Philosophy
-
-I focus on:
-- incentive alignment  
-- long-term emergent behavior  
-- systems that improve themselves  
-
----
-
 ## 🚀 Direction
 
 I’m interested in building and collaborating on:
