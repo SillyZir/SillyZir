@@ -21,6 +21,25 @@ My work is centered around:
 
 ---
 
+## 🧩 System Architecture
+
+Current work is focused on building a modular on-chain system composed of:
+
+- **permission_registry** → access control layer  
+- **service_registry** → service discovery + integration  
+- **upgrade_registry** → contract upgrade coordination  
+- **timelock_guardian** → secure execution + governance delays  
+- **fee_split** → revenue routing and distribution  
+
+Together, these form a foundation for:
+- composable on-chain infrastructure  
+- upgradeable protocol systems  
+- coordinated, permissioned execution  
+
+This is evolving into a unified, composable on-chain system.
+
+---
+
 ## 🚀 Direction
 
 I’m interested in building and collaborating on:
