@@ -36,8 +36,6 @@ Together, these form a foundation for:
 - upgradeable protocol systems  
 - coordinated, permissioned execution  
 
-Together, these components form the foundation of a composable, upgradeable on-chain system.
-
 ---
 
 ## 🚀 Direction
