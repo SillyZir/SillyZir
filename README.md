@@ -10,7 +10,7 @@ I design and build autonomous systems that use software, and structured workflow
 
 ### Autonomous Software Engineering
 
-- Autonomous issue discovery and triage
+- Autonomous issue discovery
 - Codebase investigation and localization
 - Patch generation
 - Regression-test generation
