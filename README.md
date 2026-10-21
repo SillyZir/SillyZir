@@ -1,117 +1,70 @@
 # Hey, I'm SillyZir 👋
 
-### Systems Engineering · Autonomous Software Engineering · Crypto Infrastructure
+### Autonomous Software Engineering · Agent Evaluation · Systems Reliability
 
-I design and build autonomous systems that use software, and structured workflows to perform real technical work.
-
----
-
-## ⚙️ What I Build
-
-### Autonomous Software Engineering
-
-- Autonomous issue discovery
-- Codebase investigation and localization
-- Patch generation
-- Regression-test generation
-- Automated testing and evaluation
-- Repository-specific policy enforcement
-- Failure detection and recovery
-- Integrity verification
-- Evidence and audit trails
-- Measurement of autonomous engineering workflows
-- Controlled autonomous execution
-
-### Agent Systems
-
-- Agent orchestration and tool use
-- Multi-stage reasoning and execution
-- Persistent state
-- Decision-making systems
-- Policy enforcement
-- Failure detection and recovery
-- Budget and concurrency controls
-- Exception handling
-- Human/AI collaboration
-- Systems designed for continuous operation
-
-### Crypto & Protocol Systems
-
-- Mechanism design
-- Token economics
-- On-chain coordination
-- Protocol architecture
-- Crypto-native infrastructure
-- Capital-flow intelligence
-- Autonomous systems for crypto
+I build autonomous systems that do real technical work — and I spend most of my effort proving
+their output is right.
 
 ---
 
-# 🧠 Omega
+## 🤖 Agent Omega
 
-**Omega** is my primary engineering project: an **autonomous software engineering system** that I designed and built from scratch.
+An autonomous repair system for open-source Go projects. It reads a bug report, locates the
+responsible code, writes a patch, generates a regression test, and clears two independent automated
+reviews and 15 release gates before anything ships.
 
-Omega combines systems engineering, software tooling, orchestration, evaluation, policy enforcement, measurement, persistent state, and controlled execution into an engineered software-development workflow:
+Source is private. These are the public results.
 
-**Discover → Investigate → Implement → Test → Evaluate → Verify → Review → Ship**
+| Merged upstream | What it fixes |
+|---|---|
+| [caddy #7916](https://github.com/caddyserver/caddy/pull/7916) | isolate active health-check state per distinct check config |
+| [go-ethereum #35433](https://github.com/ethereum/go-ethereum/pull/35433) | only synthesize finalized/safe markers with an explicit sync target |
+| [rclone #9726](https://github.com/rclone/rclone/pull/9726) | reuse resumable-upload chunk buffers via a size-matched pool |
+| [caddy #7904](https://github.com/caddyserver/caddy/pull/7904) | isolate auth provider responses to prevent cross-provider clobbering |
+| [caddy #7920](https://github.com/caddyserver/caddy/pull/7920) | shield specific hostnames from a covering wildcard's client auth |
 
-Execution authority is determined by repository policy, machine-verifiable requirements, system integrity, and configured autonomy boundaries.
-
-**The surrounding architecture is the engineering work.**
-
-That includes:
-
-- Issue discovery and triage
-- Codebase localization
-- Patch generation
-- Regression-test generation
-- Independent patch evaluation
-- Repository-specific contribution policies
-- Automated verification
-- Blinded engineering estimates
-- Outcome measurement
-- Append-only audit trails
-- Cost attribution
-- Failure recovery
-- Integrity verification
-- Budget and concurrency enforcement
-- Exception handling
-- Persistent operational state
-
-The objective isn't simply to generate code.
-
-It's to build an autonomous system capable of performing useful engineering work while remaining:
-
-**measurable · constrained · auditable · recoverable**
+**Nine patches merged** across caddy, rclone, and go-ethereum — concurrency isolation, buffer
+reuse, and protocol correctness, each reviewed by that project's maintainers.
 
 ---
 
-I'm particularly interested in:
+## 📏 How it's measured
 
-- Autonomous software engineering
-- Agent evaluation
-- Systems engineering
-- Human/AI collaboration
-- Reliability and failure recovery
-- AI governance and safety boundaries
-- Economic measurement of AI labor
-- Autonomous infrastructure
-- Agent orchestration
-- Systems that turn AI capabilities into repeatable workflows
+I built a benchmark from **37 real bugs with known answers**, each paired with the fix maintainers
+actually merged.
+
+| | Correct file ranked first |
+|---|---|
+| Keyword baseline | **4 / 37** |
+| Agentic localization | **29 / 37** |
+
+Four agent runs exhausted their turn budget and produced no ranking. They're counted as misses, so
+both numbers share a denominator.
+
+On patch generation, of 35 issues that produced a patch: **28 touch a correct file**, **25 land
+within ±5 lines** of the human-changed region. An LLM judge calls 17 of 35 root-cause equivalent —
+but a blinded audit of that judge found it models test adequacy and scope *not at all*, so I treat
+it as a research proxy, not a claim that those patches were ready to merge.
+
+That same benchmark is what killed my first version. A second implementation of the verifier in
+Rust was measured against its own pre-registered bars, failed them, and was not promoted — the
+result stayed in the record instead of being retried until it passed.
 
 ---
 
-# 🧩 Crypto & Protocol Systems
+## ⚙️ The design constraint
 
-I also build and research crypto-native systems around:
+The objective isn't generating code. It's an autonomous system that performs useful engineering
+work while staying **measurable · constrained · auditable · recoverable**:
 
-- Token and incentive design
-- Mechanism engineering
-- On-chain coordination
-- Permissioning and governance
-- Protocol upgrades
-- Secure execution
-- Capital-flow intelligence
-- Autonomous crypto infrastructure
+- Pass criteria registered before results exist; test data frozen
+- 15 auto-ship gates, each tested by feeding it deliberately broken patches to confirm it rejects them
+- Two independent automated reviewers with disagreement detection
+- Fail-closed evidence capture — an unverifiable run halts rather than proceeding
+- Full autonomy enabled for two repositories; everything else requires operator approval
 
-My broader interest is where **incentives, coordination, software, and autonomous systems intersect.**
+---
+
+**Working in:** Python · Go · Rust · Gno
+**Interested in:** autonomous software engineering, agent evaluation, developer tooling, reliability
+and failure recovery, human/AI collaboration
