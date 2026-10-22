@@ -9,11 +9,16 @@ their output is right.
 
 ## 🤖 Agent Omega
 
-An autonomous repair system for open-source Go projects. It reads a bug report, locates the
+An autonomous repair system for open-source projects. It reads a bug report, locates the
 responsible code, writes a patch, generates a regression test, and clears two independent automated
-reviews and 15 release gates before anything ships.
+reviews and 16 release gates before anything ships.
 
-Source is private. These are the public results.
+The live operational system is private; the architecture, core modules, and a
+runnable demonstration are public — and every result below is verifiable.
+
+[Demonstration site](https://omegademo.com/anatomy.html) ·
+[System showcase](https://github.com/SillyZir/Agent-Omega) ·
+[Runnable lab](https://github.com/SillyZir/agent-omega-lab)
 
 | Merged upstream | What it fixes |
 |---|---|
@@ -23,8 +28,10 @@ Source is private. These are the public results.
 | [caddy #7904](https://github.com/caddyserver/caddy/pull/7904) | isolate auth provider responses to prevent cross-provider clobbering |
 | [caddy #7920](https://github.com/caddyserver/caddy/pull/7920) | shield specific hostnames from a covering wildcard's client auth |
 
-**Nine patches merged** across caddy, rclone, and go-ethereum — concurrency isolation, buffer
-reuse, and protocol correctness, each reviewed by that project's maintainers.
+**Eleven pull requests merged** across caddy, rclone, go-ethereum, k3s, and
+DeepSeek-Reasonix — concurrency isolation, buffer reuse, and protocol correctness,
+each reviewed and merged by that project's maintainers. One went from bug report
+to merged with no human involvement at all.
 
 ---
 
@@ -39,7 +46,8 @@ actually merged.
 | Agentic localization | **29 / 37** |
 
 Four agent runs exhausted their turn budget and produced no ranking. They're counted as misses, so
-both numbers share a denominator.
+both numbers share a denominator. (Among the 33 runs that completed, top-1 is 29/33 — the 88%
+framing the project site uses; top-3 within completed runs was 33/33.)
 
 On patch generation, of 35 issues that produced a patch: **28 touch a correct file**, **25 land
 within ±5 lines** of the human-changed region. An LLM judge calls 17 of 35 root-cause equivalent —
@@ -58,7 +66,7 @@ The objective isn't generating code. It's an autonomous system that performs use
 work while staying **measurable · constrained · auditable · recoverable**:
 
 - Pass criteria registered before results exist; test data frozen
-- 15 auto-ship gates, each tested by feeding it deliberately broken patches to confirm it rejects them
+- 16 auto-ship gates, each tested by feeding it deliberately broken patches to confirm it rejects them
 - Two independent automated reviewers with disagreement detection
 - Fail-closed evidence capture — an unverifiable run halts rather than proceeding
 - Full autonomy enabled for two repositories; everything else requires operator approval
